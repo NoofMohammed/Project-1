@@ -80,6 +80,8 @@ let obj = {
     Answar: "3",
   },
 };
+let result = 0;
+let currntAnswer;
 var selectors = document.getElementsByClassName("select");
 
 for (var i = 0; i < selectors.length; i++) {
@@ -89,6 +91,7 @@ for (var i = 0; i < selectors.length; i++) {
       old[0].className = old[0].className.replace(" active", "");
     }
     this.className += " active";
+    currntAnswer = this.id
   });
 }
 
@@ -100,31 +103,53 @@ document.getElementById("4").innerText = "main";
 
 document.getElementById("next").onclick = function () {
   nextQuestion();
+  var old = document.getElementsByClassName("active");
+    if (old[0]) {
+      old[0].className = old[0].className.replace(" active", "");
+    }
+
 };
 const arrarQ = Object.keys(obj);
 
-let index = 1;
-const nextQuestion = () => {
-  let key = arrarQ[index];
-  index += 1;
-  console.log("mmmmm", key);
+let index = 0;
 
-  let questionObj = obj[key];
+
+const nextQuestion = () => {
+  
+  
+  if (index>= arrarQ.length){
+    alert(result)
+     return
+}
+
+let key = arrarQ[index];
+  index += 1;
+  console.log(key,"key")
+let questionObj = obj[key];
+console.log(questionObj.Answar , "object",currntAnswer,"currntAnswer" )
+if(questionObj.Answar == currntAnswer ){
+  result += 1
+  
+}
+
+  
+
+  
+  
   document.getElementById("question").innerText = questionObj.value;
   document.getElementById("1").innerText = questionObj[1];
   document.getElementById("2").innerText = questionObj[2];
   document.getElementById("3").innerText = questionObj[3];
   document.getElementById("4").innerText = questionObj[4];
-  // if()
+  
+  
 
 
 
 
-  if (index>obj.length){
-      return result
-  }
-
+  
  
 
   //  return obj[key].value
 };
+
