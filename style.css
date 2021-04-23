@@ -1,2 +1,53 @@
+h3{
+    border: 5px;
+    color: blueviolet;
+    background-color: cyan;
+    padding: 1em;
+    text-align: center;
+}
+.p-select{
+    font-size: 25px;
+    display: flex;
+    /* flex-direction: column;  */
+     justify-content: space-around;
+    background-color: navajowhite;
+    /* padding: 1em;
+    text-align: center;  */
+
+
+}
+.selec-left{
+    flex-direction: column;
+
+}
+.selec1{
+    border:  3px olive;
+}
 
     
+
+#next{
+    text-align: center;
+    background-color: forestgreen;
+    padding: 25px 122px 25px 122px;
+    margin-left: 25%;
+    margin-top: 7%;
+    border-radius: 18%;
+    width: 195px;
+    height: 72px;
+    border-radius: 197px;
+    
+}
+.active{
+    background-color: green;
+    color: white;
+
+}
+
+
+
+
+
+
+    
+ 
