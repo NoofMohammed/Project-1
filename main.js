@@ -24,11 +24,11 @@ let obj = {
     Answar: "4",
   },
   Q4: {
-    value: "An important thing to learn to become aprofessional in javaScript?",
-    1: "html",
-    2: "nothing",
-    3: "Error handling",
-    4: "All",
+    value: "Which one is string?",
+    1: "{a:1}",
+    2: "All",
+    3: "'Noof'",
+    4: "Noof",
     Answar: "3",
   },
   Q5: {
@@ -80,8 +80,9 @@ let obj = {
     Answar: "3",
   },
 };
+
 let result = 0;
-let currntAnswer;
+let currntAnswer = 0;
 var selectors = document.getElementsByClassName("select");
 
 for (var i = 0; i < selectors.length; i++) {
@@ -91,65 +92,55 @@ for (var i = 0; i < selectors.length; i++) {
       old[0].className = old[0].className.replace(" active", "");
     }
     this.className += " active";
-    currntAnswer = this.id
+    currntAnswer = this.id;
   });
 }
-
-document.getElementById("question").innerText = "What is javaScript extension?";
-document.getElementById("1").innerText = ".html";
-document.getElementById("2").innerText = ".js";
-document.getElementById("3").innerText = ".css";
-document.getElementById("4").innerText = "main";
-
-document.getElementById("next").onclick = function () {
-  nextQuestion();
-  var old = document.getElementsByClassName("active");
-    if (old[0]) {
-      old[0].className = old[0].className.replace(" active", "");
-    }
-
-};
 const arrarQ = Object.keys(obj);
 
 let index = 0;
 
-
 const nextQuestion = () => {
-  
-  
-  if (index>= arrarQ.length){
-    alert(result)
-     return
-}
-
-let key = arrarQ[index];
+  let key = arrarQ[index];
+  console.log(key, "key");
+  let questionObj = obj[key];
+  console.log(questionObj.Answar, "object", currntAnswer, "currntAnswer");
+  if (questionObj.Answar == currntAnswer) {
+    result += 1;
+    
+  }
+  console.log(result, "oroeooooooo");
   index += 1;
-  console.log(key,"key")
-let questionObj = obj[key];
-console.log(questionObj.Answar , "object",currntAnswer,"currntAnswer" )
-if(questionObj.Answar == currntAnswer ){
-  result += 1
-  
-}
+  if (currntAnswer == 0) {
+    return alert("please choose to answer");
+    
+    
+  }
+  fill();
+};
 
-  
+document.getElementById("next").onclick = function () {
+  nextQuestion();
+  var old = document.getElementsByClassName("active");
+  if (old[0]) {
+    old[0].className = old[0].className.replace(" active", "");
+  }
+};
 
+const fill = () => {
+  currntAnswer = 0
   
-  
+  if (index >= arrarQ.length) {
+    alert(result + " of " + (arrarQ.length));
+    return;
+  }
+
+  let key = arrarQ[index];
+  let questionObj = obj[key];
+
   document.getElementById("question").innerText = questionObj.value;
   document.getElementById("1").innerText = questionObj[1];
   document.getElementById("2").innerText = questionObj[2];
   document.getElementById("3").innerText = questionObj[3];
   document.getElementById("4").innerText = questionObj[4];
-  
-  
-
-
-
-
-  
- 
-
-  //  return obj[key].value
 };
-
+fill();
