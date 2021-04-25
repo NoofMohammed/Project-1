@@ -1,80 +1,84 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 
-.p-select{
-    font-size: 25px;
-    flex-direction: column;
-    display: flex;
-    margin: 50px 50px 50px 50px;
-    justify-content: space-around;
-    cursor: pointer;
-    text-align: center;
-    align-items: center;
-    
-
-    }
-#next{
+.p-select {
+  font-size: 25px;
+  flex-direction: column;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+}
+#next {
   background-color: rgb(131, 48, 94);
   cursor: pointer;
-  
   color: white;
-  padding: 15px 32px;
-  width: 30%;
+  padding: 15px 60px;
+  width: 100%;
   border-radius: 24px;
   font-size: 25px;
 }
 
-
-.nextclass{
-    
-    text-align: center; 
-    margin-top: 20px;
-
+.nextclass {
+  text-align: center;
+  margin-top: 20px;
+  width: auto
 }
-.main{
-     background-color:  rgb(255, 217, 136);
-     width: 100%;
-     height: 100%;
-     overflow: auto;
+.main {
+  background-color: rgb(255, 217, 136);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#question{
-    background-color: rgb(230, 42, 145);
-    margin: 50px 50px 50px 90px;
-    width: 85%;
-    height: 50px;
-    text-align: center;
-    font-size: 35px;
-    border-radius: 24px;
-}
-
-  .select {
-    border-radius: 24px;
-    margin: 24px 24px 14px 24px;
-    background-color:  rgb(231, 77, 162);
-    font-size: 35px;
-    color:oldlace;
-    width: 65%;
-    height: 50px;
-
-
-
-  }
-
-  .active{
-    background-color: darkcyan;
-    color: white;
-
-}
-.mystyle{
-    background-color: darkcyan;
-    height: 100px;
-    width: 100%;
-    
+#question {
+  background-color: rgb(230, 42, 145);
+  margin: 50px 50px 50px 40px;
+  width: 85%;
+  height: auto;
+  text-align: center;
+  align-items: center;
+  font-size: 35px;
+  border-radius: 24px;
+  padding: 12px 0;
 }
 
-  
+.select {
+  border-radius: 24px;
+  margin: 24px 24px 14px 24px;
+  background-color: rgb(231, 77, 162);
+  font-size: 35px;
+  color: oldlace;
+  width: 100%;
+  height: auto;
+  padding: 8px 0;
+}
 
+.active {
+  background-color: darkcyan;
+  color: white;
+}
+.mystyle {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+img {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
 
-
-
-
-    
- 

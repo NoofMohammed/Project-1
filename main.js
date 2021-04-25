@@ -1,4 +1,4 @@
-let obj = {
+const obj = {
   Q1: {
     value: "What is javaScript extension?",
     1: ".html",
@@ -23,72 +23,71 @@ let obj = {
     4: "{name: 'noof', age: '24'}",
     Answar: "4",
   },
+  Q4: {
+    value: "Which one is string?",
+    1: "{a:1}",
+    2: "All",
+    3: "'Noof'",
+    4: "Noof",
+    Answar: "3",
+  },
+  Q5: {
+    value: "To add to the array,use?",
+    1: "array.join()",
+    2: "array.split()",
+    3: "array.slice()",
+    4: "array.push()",
+    Answar: "4",
+  },
+  Q6: {
+    value: "[1,2,3][2] =>(?)",
+    1: "3",
+    2: "0",
+    3: "1",
+    4: "2",
+    Answar: "1",
+  },
+  Q7: {
+    value: "Which one is array?",
+    1: "{1,2,3}",
+    2: "{A:'1',B: '2'}",
+    3: "[1,2,3,4]",
+    4: "2,4",
+    Answar: "3",
+  },
+  Q8: {
+    value: "Math.floor(2.99) =>?",
+    1: "1",
+    2: "2",
+    3: "4",
+    4: "2.99",
+    Answar: "2",
+  },
+  Q9: {
+    value: "[Hello, Noof].join(' ') =>?",
+    1: "Hellonoof",
+    2: "[hello Noof]",
+    3: "{Hello: 'Noof'}",
+    4: "'Hello Noof'",
+    Answar: "4",
+  },
+  Q10: {
+    value: "[1,2,3,4,5].ravars() =>?",
+    1: "15",
+    2: "[1,2,3,4,5]",
+    3: "[5,4,3,2,1]",
+    4: "[1,2,3]",
+    Answar: "3",
+  },
 };
-//   Q4: {
-//     value: "Which one is string?",
-//     1: "{a:1}",
-//     2: "All",
-//     3: "'Noof'",
-//     4: "Noof",
-//     Answar: "3",
-//   },
-//   Q5: {
-//     value: "To add to the array,use?",
-//     1: "array.join()",
-//     2: "array.split()",
-//     3: "array.slice()",
-//     4: "array.push()",
-//     Answar: "4",
-//   },
-//   Q6: {
-//     value: "[1,2,3][2] =>(?)",
-//     1: "3",
-//     2: "0",
-//     3: "1",
-//     4: "2",
-//     Answar: "1",
-//   },
-//   Q7: {
-//     value: "Which one is array?",
-//     1: "{1,2,3}",
-//     2: "{A:'1',B: '2'}",
-//     3: "[1,2,3,4]",
-//     4: "2,4",
-//     Answar: "3",
-//   },
-//   Q8: {
-//     value: "Math.floor(2.99) =>?",
-//     1: "1",
-//     2: "2",
-//     3: "4",
-//     4: "2.99",
-//     Answar: "2",
-//   },
-//   Q9: {
-//     value: "[Hello, Noof].join(' ') =>?",
-//     1: "Hellonoof",
-//     2: "[hello Noof]",
-//     3: "{Hello: 'Noof'}",
-//     4: "'Hello Noof'",
-//     Answar: "4",
-//   },
-//   Q10: {
-//     value: "[1,2,3,4,5].ravars() =>?",
-//     1: "15",
-//     2: "[1,2,3,4,5]",
-//     3: "[5,4,3,2,1]",
-//     4: "[1,2,3]",
-//     Answar: "3",
-//   },
-// };
 
 let result = 0;
 let currntAnswer = 0;
-let selectors = document.getElementsByClassName("select");
+const selectors = document.getElementsByClassName("select");
 
 for (let i = 0; i < selectors.length; i++) {
   selectors[i].addEventListener("click", function () {
-    let old = document.getElementsByClassName("active");
+    const old = document.getElementsByClassName("active");
     if (old[0]) {
       old[0].className = old[0].className.replace(" active", "");
     }
@@ -96,17 +95,17 @@ for (let i = 0; i < selectors.length; i++) {
     currntAnswer = this.id;
   });
 }
-const arrarQ = Object.keys(obj);
 
+const arrarQ = Object.keys(obj);
 let index = 0;
 
 const nextQuestion = () => {
-  let key = arrarQ[index];
+  const key = arrarQ[index];
   let questionObj = obj[key];
   if (questionObj.Answar == currntAnswer) {
     result += 1;
   }
-  console.log(result, "oroeooooooo");
+
   index += 1;
   if (currntAnswer == 0) {
     return alert("please choose to answer");
@@ -117,25 +116,23 @@ const nextQuestion = () => {
 
 document.getElementById("next").onclick = function () {
   nextQuestion();
-  var old = document.getElementsByClassName("active");
+  const old = document.getElementsByClassName("active");
   if (old[0]) {
     old[0].className = old[0].className.replace(" active", "");
   }
 };
+
 const fill = () => {
   currntAnswer = 0;
 
   if (index >= arrarQ.length) {
-    if (result === arrarQ.length) {
-      finish();
-      
-    }
-    alert(result + " of " + arrarQ.length);
+    alert(`${result} of ${arrarQ.length}`);
+    finish();
     return;
   }
 
-  let key = arrarQ[index];
-  let questionObj = obj[key];
+  const key = arrarQ[index];
+  const questionObj = obj[key];
 
   document.getElementById("question").innerText = questionObj.value;
   document.getElementById("1").innerText = questionObj[1];
@@ -143,11 +140,20 @@ const fill = () => {
   document.getElementById("3").innerText = questionObj[3];
   document.getElementById("4").innerText = questionObj[4];
 };
+
 fill();
 
 const finish = () => {
+  const element = document.getElementsByClassName("main")[0];
+  element.innerHTML = "";
+  element.classList.add("mystyle");
+  const main = document.querySelector(".main");
+  const img = document.createElement("img");
+  let picture = "https://i.gifer.com/A20e.gif";
+  if (result < arrarQ.length / 2) {
+    picture = "https://media.giphy.com/media/l2Je1pHtloVlENuJa/giphy.gif";
+  }
+  img.src = picture;
+  main.append(img);
+};
 
-  let element = document.getElementsByClassName("main")[0];
-      element.innerHTML = "NOOF";
-      element.classList.add("mystyle");
-}
