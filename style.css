@@ -1,78 +1,75 @@
-h3{
-    border: 5px;
-    color: blueviolet;
-    background-color: cyan;
-    padding: 1em;
-    text-align: center;
-}
+
 .p-select{
     font-size: 25px;
     flex-direction: column;
-
     display: flex;
     margin: 50px 50px 50px 50px;
-    
-    
-     justify-content: space-around;
-    background-color: rgb(243, 85, 172);
-    
-
-
-}
-/* .selec-left{
-    flex-direction: column;
-
-} */
-.selec1{
-    border:  3px olive;
-}
-
+    justify-content: space-around;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
     
 
+    }
 #next{
-  background-color: blueviolet;
+  background-color: rgb(131, 48, 94);
+  cursor: pointer;
   
   color: white;
   padding: 15px 32px;
   width: 30%;
   border-radius: 24px;
+  font-size: 25px;
 }
 
-.active{
-    background-color: green;
-    color: white;
 
-}
 .nextclass{
     
     text-align: center; 
     margin-top: 20px;
 
 }
-body{
+.main{
      background-color:  rgb(255, 217, 136);
+     width: 100%;
+     height: 100%;
+     overflow: auto;
 }
 #question{
     background-color: rgb(230, 42, 145);
-    margin: 50px 50px 50px 50px;
+    margin: 50px 50px 50px 90px;
     width: 85%;
     height: 50px;
     text-align: center;
     font-size: 35px;
     border-radius: 24px;
- 
 }
-.select1{
+
+  .select {
     border-radius: 24px;
-    margin-bottom: 24px;
-    background-color: midnightblue;
+    margin: 24px 24px 14px 24px;
+    background-color:  rgb(231, 77, 162);
+    font-size: 35px;
+    color:oldlace;
+    width: 65%;
+    height: 50px;
+
+
+
+  }
+
+  .active{
+    background-color: darkcyan;
+    color: white;
 
 }
-.alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-  }
+.mystyle{
+    background-color: darkcyan;
+    height: 100px;
+    width: 100%;
+    
+}
+
   
 
 

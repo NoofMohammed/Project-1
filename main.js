@@ -23,71 +23,72 @@ let obj = {
     4: "{name: 'noof', age: '24'}",
     Answar: "4",
   },
-  Q4: {
-    value: "Which one is string?",
-    1: "{a:1}",
-    2: "All",
-    3: "'Noof'",
-    4: "Noof",
-    Answar: "3",
-  },
-  Q5: {
-    value: "To add to the array,use?",
-    1: "array.join()",
-    2: "array.split()",
-    3: "array.slice()",
-    4: "array.push()",
-    Answar: "4",
-  },
-  Q6: {
-    value: "[1,2,3][2] =>(?)",
-    1: "3",
-    2: "0",
-    3: "1",
-    4: "2",
-    Answar: "1",
-  },
-  Q7: {
-    value: "Which one is array?",
-    1: "{1,2,3}",
-    2: "{A:'1',B: '2'}",
-    3: "[1,2,3,4]",
-    4: "2,4",
-    Answar: "3",
-  },
-  Q8: {
-    value: "Math.floor(2.99) =>?",
-    1: "1",
-    2: "2",
-    3: "4",
-    4: "2.99",
-    Answar: "2",
-  },
-  Q9: {
-    value: "[Hello, Noof].join(' ') =>?",
-    1: "Hellonoof",
-    2: "[hello Noof]",
-    3: "{Hello: 'Noof'}",
-    4: "'Hello Noof'",
-    Answar: "4",
-  },
-  Q10: {
-    value: "[1,2,3,4,5].ravars() =>?",
-    1: "15",
-    2: "[1,2,3,4,5]",
-    3: "[5,4,3,2,1]",
-    4: "[1,2,3]",
-    Answar: "3",
-  },
 };
+//   Q4: {
+//     value: "Which one is string?",
+//     1: "{a:1}",
+//     2: "All",
+//     3: "'Noof'",
+//     4: "Noof",
+//     Answar: "3",
+//   },
+//   Q5: {
+//     value: "To add to the array,use?",
+//     1: "array.join()",
+//     2: "array.split()",
+//     3: "array.slice()",
+//     4: "array.push()",
+//     Answar: "4",
+//   },
+//   Q6: {
+//     value: "[1,2,3][2] =>(?)",
+//     1: "3",
+//     2: "0",
+//     3: "1",
+//     4: "2",
+//     Answar: "1",
+//   },
+//   Q7: {
+//     value: "Which one is array?",
+//     1: "{1,2,3}",
+//     2: "{A:'1',B: '2'}",
+//     3: "[1,2,3,4]",
+//     4: "2,4",
+//     Answar: "3",
+//   },
+//   Q8: {
+//     value: "Math.floor(2.99) =>?",
+//     1: "1",
+//     2: "2",
+//     3: "4",
+//     4: "2.99",
+//     Answar: "2",
+//   },
+//   Q9: {
+//     value: "[Hello, Noof].join(' ') =>?",
+//     1: "Hellonoof",
+//     2: "[hello Noof]",
+//     3: "{Hello: 'Noof'}",
+//     4: "'Hello Noof'",
+//     Answar: "4",
+//   },
+//   Q10: {
+//     value: "[1,2,3,4,5].ravars() =>?",
+//     1: "15",
+//     2: "[1,2,3,4,5]",
+//     3: "[5,4,3,2,1]",
+//     4: "[1,2,3]",
+//     Answar: "3",
+//   },
+// };
 
 let result = 0;
 let currntAnswer = 0;
-var selectors = document.getElementsByClassName("select");
+let selectors = document.getElementsByClassName("select");
 
-for (var i = 0; i < selectors.length; i++) {
+for (let i = 0; i < selectors.length; i++) {
   selectors[i].addEventListener("click", function () {
-    var old = document.getElementsByClassName("active");
+    let old = document.getElementsByClassName("active");
     if (old[0]) {
       old[0].className = old[0].className.replace(" active", "");
     }
@@ -101,20 +102,16 @@ let index = 0;
 
 const nextQuestion = () => {
   let key = arrarQ[index];
-  console.log(key, "key");
   let questionObj = obj[key];
-  console.log(questionObj.Answar, "object", currntAnswer, "currntAnswer");
   if (questionObj.Answar == currntAnswer) {
     result += 1;
-    
   }
   console.log(result, "oroeooooooo");
   index += 1;
   if (currntAnswer == 0) {
     return alert("please choose to answer");
-    
-    
   }
+
   fill();
 };
 
@@ -125,12 +122,15 @@ document.getElementById("next").onclick = function () {
     old[0].className = old[0].className.replace(" active", "");
   }
 };
-
 const fill = () => {
-  currntAnswer = 0
-  
+  currntAnswer = 0;
+
   if (index >= arrarQ.length) {
-    alert(result + " of " + (arrarQ.length));
+    if (result === arrarQ.length) {
+      finish();
+      
+    }
+    alert(result + " of " + arrarQ.length);
     return;
   }
 
@@ -144,3 +144,10 @@ const fill = () => {
   document.getElementById("4").innerText = questionObj[4];
 };
 fill();
+
+const finish = () => {
+
+  let element = document.getElementsByClassName("main")[0];
+      element.innerHTML = "NOOF";
+      element.classList.add("mystyle");
+}
